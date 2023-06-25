@@ -1,12 +1,9 @@
 
-@import "all";
-
-// Libs
-@import "select";
-
 // Main
 @import "support";
+@import "all";
 @import "script-classes";
 @import "header";
-@import "filter";
+@import "main";
 @import "footer";
+@import "media";

@@ -1,138 +1,113 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Burger menu (Header)
+    const burger = document.querySelector(".header__burger");
+    const menu = document.querySelector(".header__menu");
+    const cookiesAlert =  document.querySelector(".cookies-alert");
+    const cookiesAlertClose = document.querySelector(".cookies-alert__btn");
 
-    class MainMenu {
-        constructor() {
-            this.menu = document.querySelector('.main-menu');
-            this.body = document.body;
-            this.menuBtn = document.querySelectorAll('.main-menu-btn');
-        }
-
-        openMenu = (e) => {
-            this.menu.classList.add('show');
-            this.body.classList.add('lock');
-            e.target.classList.add('collapsed');
-        }
-
-        closeMenu = (e) => {
-            this.menu.classList.remove('show');
-            this.body.classList.remove('lock');
-            e.target.classList.remove('collapsed');
-        }
-
-        render() {
-            this.menuBtn.forEach(element => {
-                element.addEventListener('click', (e) => {
-                    if (this.menu.classList.contains('show')) {
-                        this.closeMenu(e);
+    if (document.querySelector(".form-validate")) {
+        document.querySelectorAll(".form-validate").forEach(el => {
+            const inputs =  el.querySelectorAll("[required]");
+            const inputsText = el.querySelectorAll("input[type='text'][required]");
+            const formEmail = el.querySelector("[type='email']");
+            const checkboxes = el.querySelectorAll("[type='checkbox'");
+            const formBtn = el.querySelector("[type='submit']");
+            let checkboxState = false;
+            let emailState = false;
+            let textState = false;
+    
+            formBtn.disabled = true;
+    
+    
+            el.addEventListener("change", () => {
+            })
+            
+            inputs.forEach(input => {
+                input.addEventListener("change", () => {
+                    // console.log(textState);
+                    console.log(checkboxState);
+                    // console.log(emailState);
+                    checkboxes.forEach(checkbox => {
+                        if (checkbox.checked != false) {
+                            checkboxState = true;
+                        } else {
+                            checkboxState = false;
+                        }
+                    });
+                    inputsText.forEach(el => {
+                        if (el.value != '') {
+                            textState = true;
+                        } else {
+                            textState = false;
+                        }
+                    });
+                    if (formEmail.value.indexOf("@") != -1) {
+                        emailState = true;
                     } else {
-                        this.openMenu(e);
+                        emailState = false;
+                    }
+                    if (textState && checkboxState && emailState) {
+                        formBtn.disabled = false;
+                    } else {
+                        formBtn.disabled = true;
                     }
                 })
             })
-        }
-    }
-
-    //Получаем все "select" по селектору
-    //Получаем все "select" по селектору
-    const selects = document.querySelectorAll('[data-custom-select]');
-    //переборка по полученным "select"
-    for (let i = 0; i < selects.length; i++) {
-        const select = selects[i]
-        //получаем все "option" внутри "select"
-        const options = select.querySelectorAll('option')
-
-        //создаем кастомный "select"
-        const cSelect = document.createElement('div')
-        const cSelectList = document.createElement('div')
-        const cSelectCurrent = document.createElement('div');
-        const cSelectCurrentText = document.createElement("span");
-
-        // select.setAttribute('tabindex', '1')
-        //задем классы и атрибуты кастомному "select"
-        cSelect.className = 'custom-select' + ' ' + select.classList;
-        cSelectList.className = 'custom-select__list custom-scrollbar'
-        cSelectCurrent.className = 'custom-select__current'
-        cSelectCurrent.append(cSelectCurrentText);
-
-        //создаем вложенность созданных элементов
-        cSelect.append(cSelectCurrent, cSelectList)
-
-        //добавляем кастоный "select" сразу после оргинального "select"
-        select.after(cSelect)
-
-        //получаем список и значения "option" из "select", затем создаём кастомный "option" для кастоного "select"
-        const createCustomDom = (x, y) => {
-            let selectItems = ''
-            for (var i = 0; i < options.length; i++) {
-                console.log(select.clientWidth);
-                selectItems += '<div class="custom-select__item" data-value="' + options[i].value + '">' + options[i].text + '</div>'
-            }
-            cSelectList.innerHTML = selectItems
-            x(), y();
-        }
-
-        //открываем-закрываем выпадающий список по клику
-        const toggleClass = () => { cSelect.classList.toggle('custom-select--show') }
-
-        //присваиваем текстовое первое значение "option" в кастомном "select"
-        const currentTextValue = () => cSelectCurrentText.textContent = cSelectList.children[0].textContent
-
-        //получаем и задаем значения text/value 
-        const currentValue = () => {
-            const items = cSelectList.children
-            for (var el = 0; el < items.length; el++) {
-                let selectValue = items[el].getAttribute('data-value')
-                let selectText = items[el].textContent
-                items[el].addEventListener('click', () => {
-                    cSelect.classList.remove('custom-select--show')
-                    cSelectCurrentText.textContent = selectText
-                    select.value = selectValue
-                })
-            }
-        }
-
-        const desctopFn = () => {
-            cSelectCurrent.addEventListener('click', toggleClass)
-        }
-
-        const mobileFn = () => {
-            for (let j = 0; j < selects.length; j++) {
-                let mobileSelect = selects[j]
-                mobileSelect.addEventListener('change', () => {
-                    mobileSelect.nextElementSibling.querySelector('.custom-select__current').textContent = mobileSelect.value
-                })
-            }
-        }
-
-        createCustomDom(currentTextValue, currentValue)
-
-
-        //закрываем выпадающий список по клику вне области кастомного селекта
-        document.addEventListener('mouseup', (e) => {
-            if (!cSelect.contains(e.target)) cSelect.classList.remove('custom-select--show')
+    
         })
-
-        detectmob(mobileFn, desctopFn)
-
-        function detectmob(x, y) {
-            if (navigator.userAgent.match(/Android/i)
-                || navigator.userAgent.match(/webOS/i)
-                || navigator.userAgent.match(/iPhone/i)
-                || navigator.userAgent.match(/iPad/i)
-                || navigator.userAgent.match(/iPod/i)
-                || navigator.userAgent.match(/BlackBerry/i)
-                || navigator.userAgent.match(/Windows Phone/i)
-            ) {
-                x();
-                console.log('mobile')
-            }
-            else {
-                y();
-                console.log('desktop')
-            }
-        }
     }
+
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        menu.classList.toggle("active");
+    });
+
+    if (document.cookie.indexOf("cookieOn") < 0) {
+        cookiesAlert.classList.add("active");
+    }
+
+    cookiesAlertClose.addEventListener("click", () => {
+        cookiesAlert.classList.remove("active");
+        document.cookie = "cookieOn=true";
+    });
+
+    if (document.querySelector(".recovery")) {
+        const formRecovery = document.querySelector(".recovery");
+        const formRecoveryEmail = formRecovery.querySelector("[type='email']");
+        const formRecoveryAgree = formRecovery.querySelector("[name='agreePersonal']");
+        const formRecoveryBtn = formRecovery.querySelector("[type='submit'");
+
+        formRecoveryBtn.disabled = true;
+
+        formRecovery.querySelectorAll("input").forEach(el => {
+            el.addEventListener("change", () => {
+                if (formRecoveryEmail.value.indexOf("@") != -1 && formRecoveryAgree.checked != false) {
+                    formRecoveryBtn.disabled = false;
+                } else {
+                    formRecoveryBtn.disabled = true;
+                }
+            })
+        })
+        formRecovery.addEventListener("submit", (e) => {
+            document.querySelector("#formRecoveryNotAgree").style.display = "none";
+            document.querySelector("#formRecoveryEmailWrong").style.display = "none";
+            e.preventDefault();
+            if (formRecoveryEmail.value.indexOf("@") <= 0) {
+                console.log("ok");
+                document.querySelector("#formRecoveryEmailWrong").style.display = "block";
+            } 
+            if (formRecoveryAgree.checked === false) {
+                document.querySelector("#formRecoveryNotAgree").style.display = "block";
+            }
+        });
+    }
+
+    if(document.querySelector(".questions__form")) {
+        document.querySelector(".questions__form-clear").addEventListener("click", () => {
+            document.querySelector(".questions__form").reset();
+        })
+    }
+ 
+      
 
 });

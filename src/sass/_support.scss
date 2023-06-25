@@ -13,7 +13,7 @@
 // Перевод из px в rem
 
 @function rem($size) {
-  @return calc($size / 14)+rem
+  @return calc($size / 18)+rem
 }
 
 @mixin adaptiveValue($property, $startSize, $minSize, $type) {
@@ -65,15 +65,16 @@
 }
 
 // Fonts
-@include font-face('Rubik', '../fonts/Rubik/Rubik-Regular', 400, normal, ttf);
-@include font-face('Rubik', '../fonts/Rubik/Rubik-Light', 300, normal, ttf);
-@include font-face('Rubik', '../fonts/Rubik/Rubik-Medium', 500, normal, ttf);
+@include font-face('Futurica', '../fonts/a_Futurica Regular', 400, normal, ttf);
+@include font-face('A Avante Bs', '../fonts/aavantebs', 300, normal, ttf);
+@include font-face('Myraid Pro', '../fonts/MyriadPro/MyriadPro-Light', 300, normal, otf);
+@include font-face('Myraid Pro', '../fonts/MyriadPro/MyriadPro-Regular', 400, normal, otf);
+@include font-face('Myraid Pro', '../fonts/MyriadPro/MyriadPro-Bold', 700, normal, otf);
 
 // Vars
 
-$color1: #133A67;
-$color2: #13293B;
-$color3: #EE3E84;
+$color1: #515366;;
+$color2: #fee10b;
 
 // Путь к спрайту для конкатенации
 
