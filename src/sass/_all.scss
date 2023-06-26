@@ -156,7 +156,7 @@ footer {
     transition: .2s;
     cursor: pointer;
     background-image: linear-gradient(#feec01, #ffc326);
-    &:disabled {
+    &.disabled {
         border-color: #c4c4ce;
         background-image: linear-gradient(180deg, #f7f7f7, #bbbbc0);
     }
@@ -176,7 +176,7 @@ footer {
         display: flex;
         align-items: center;
         padding: 0 10px 0 10px;
-        height: 42px;
+        min-height: 42px;
         border: 1px solid #d7d7d7;
         box-shadow: 0 4px 7px #d7d7d7;
         border-radius: 10px;
@@ -294,6 +294,7 @@ footer {
     background-color: #fff;
     border: 1px solid #737785;
     transition: .3s;
+    z-index: 3;
     &:hover {
         transform: scale(1.05);
     } 

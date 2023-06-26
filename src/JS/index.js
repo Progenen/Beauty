@@ -1,66 +1,73 @@
+function validateInput(input) {
+    input.addEventListener("input", () => {
+        if (input === '') {
+            return false;
+        } else {
+            return true;
+        }
+    })
+}
+
+function validateEmail(input) {
+    input.addEventListener("input", () => {
+        if (input.indexOf("@") === -1) {
+            return false;
+        } else {
+            return true;
+        }
+    })
+}
+
+function validateCheckbox(input) {
+    if (input.checked === false) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     const burger = document.querySelector(".header__burger");
+    const menuItem = document.querySelectorAll(".header__menu-item");
     const menu = document.querySelector(".header__menu");
-    const cookiesAlert =  document.querySelector(".cookies-alert");
+    const cookiesAlert = document.querySelector(".cookies-alert");
     const cookiesAlertClose = document.querySelector(".cookies-alert__btn");
 
-    if (document.querySelector(".form-validate")) {
-        document.querySelectorAll(".form-validate").forEach(el => {
-            const inputs =  el.querySelectorAll("[required]");
-            const inputsText = el.querySelectorAll("input[type='text'][required]");
-            const formEmail = el.querySelector("[type='email']");
-            const checkboxes = el.querySelectorAll("[type='checkbox'");
-            const formBtn = el.querySelector("[type='submit']");
-            let checkboxState = false;
-            let emailState = false;
-            let textState = false;
-    
-            formBtn.disabled = true;
-    
-    
-            el.addEventListener("change", () => {
-            })
-            
-            inputs.forEach(input => {
-                input.addEventListener("change", () => {
-                    // console.log(textState);
-                    console.log(checkboxState);
-                    // console.log(emailState);
-                    checkboxes.forEach(checkbox => {
-                        if (checkbox.checked != false) {
-                            checkboxState = true;
-                        } else {
-                            checkboxState = false;
-                        }
-                    });
-                    inputsText.forEach(el => {
-                        if (el.value != '') {
-                            textState = true;
-                        } else {
-                            textState = false;
-                        }
-                    });
-                    if (formEmail.value.indexOf("@") != -1) {
-                        emailState = true;
-                    } else {
-                        emailState = false;
-                    }
-                    if (textState && checkboxState && emailState) {
-                        formBtn.disabled = false;
-                    } else {
-                        formBtn.disabled = true;
-                    }
-                })
-            })
-    
+    if (document.querySelector(".access__form")) {
+        const accesForm = document.querySelector(".access__form");
+        const formInputs = accesForm.querySelectorAll(".input-value");
+        const accessEmail = accesForm.querySelector("[type='email']");
+        const accessCheckbox = accesForm.querySelectorAll("[type='checkbox']");
+        const accessSubmit = accesForm.querySelector("[type='submit']");
+        accessSubmit.classList.add("disabled");
+
+        accesForm.addEventListener("change", () => {
+            console.log(validateCheckbox(accessCheckbox[0]));
+            if (validateInput(formInputs[0]) && validateInput(formInputs[1]) && validateInput(formInputs[2]) && validateInput(formInputs[3]) && validateInput(formInputs[4])
+            && validateEmail(accessEmail) && validateCheckbox(accessCheckbox[0]) && validateCheckbox(accessCheckbox[1]) 
+            ) {
+                accessSubmit.classList.remove("disabled");
+            } else {
+                accessSubmit.classList.add("disabled");
+
+            }
         })
+
+        
     }
 
     burger.addEventListener("click", () => {
         burger.classList.toggle("active");
         menu.classList.toggle("active");
     });
+
+    menuItem.forEach(el => {
+        el.addEventListener("click", () => {
+            burger.classList.toggle("active");
+            menu.classList.toggle("active");
+        })
+    })
 
     if (document.cookie.indexOf("cookieOn") < 0) {
         cookiesAlert.classList.add("active");
@@ -95,19 +102,19 @@ document.addEventListener('DOMContentLoaded', function () {
             if (formRecoveryEmail.value.indexOf("@") <= 0) {
                 console.log("ok");
                 document.querySelector("#formRecoveryEmailWrong").style.display = "block";
-            } 
+            }
             if (formRecoveryAgree.checked === false) {
                 document.querySelector("#formRecoveryNotAgree").style.display = "block";
             }
         });
     }
 
-    if(document.querySelector(".questions__form")) {
+    if (document.querySelector(".questions__form")) {
         document.querySelector(".questions__form-clear").addEventListener("click", () => {
             document.querySelector(".questions__form").reset();
         })
     }
- 
-      
+
+
 
 });
