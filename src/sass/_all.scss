@@ -163,7 +163,7 @@ footer {
     &:hover {
         border-color: rgb(189, 149, 30);
     }
-    &:active {
+    &:not(.disabled):active {
         background-image: linear-gradient(#ffc326,#feec01);
 
     }
@@ -201,6 +201,14 @@ footer {
         }
     }
 
+    &__input-invalid {
+        border: 2px solid #ff0000;
+
+    }
+
+    &__input-valid.form__checkbox {
+    }
+
     &__input-icon {
         max-width: 37px;
         width: 100%;
@@ -219,6 +227,15 @@ footer {
             color: $color1;
             font-weight: 700;
             text-decoration: underline;
+        }
+        &.form__input-invalid {
+            border: none;
+            span {
+                color: #ff0000;
+            }
+            a {
+                color: #ff0000;
+            }
         }
     }
 
@@ -256,6 +273,7 @@ footer {
     background-color: #fff;
     border: 1px solid #67707e;
     padding: 8px 13px 14px;
+    border-radius: 10px;
     &__text {
         margin-top: 0;
         font-family: 'A Avante Bs';
@@ -267,10 +285,15 @@ footer {
     }
 
     &__btn {
+        font-family: 'A Avante Bs';
         max-width: 181px;
         margin-left: auto;
         margin-right: auto;
-        font-size: 14px;
+        font-size: 18px;
+        padding-left: 0;
+        padding-right: 0;color: #515366;
+        font-weight: 400;
+        letter-spacing: -.5px;
     }
 }
 
@@ -352,6 +375,7 @@ footer {
     position: fixed;
     bottom: 8px;
     &.active {
-        left: 8px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
