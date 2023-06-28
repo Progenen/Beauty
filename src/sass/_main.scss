@@ -87,7 +87,8 @@
         box-shadow: 0 0 15px $color1;
     }
 
-    &__video iframe {
+    &__video video {
+        object-fit: fill;
         width: 100%;
         height: 512px;
     }

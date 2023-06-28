@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 inputEmali.parentElement.classList.add("form__input-invalid");
                 inputEmali.parentElement.parentElement.querySelector(".form__error").style.display="block";
                 inputEmali.parentElement.parentElement.querySelector(".form__error").textContent = errors[0];
-            } else if (inputEmali.value.indexOf("@")) {
+            } else if (inputEmali.value.indexOf("@") === -1) {
                 inputEmali.parentElement.classList.add("form__input-invalid");
                 inputEmali.parentElement.parentElement.querySelector(".form__error").style.display="block";
                 inputEmali.parentElement.parentElement.querySelector(".form__error").textContent = errors[1];
