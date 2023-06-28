@@ -48,26 +48,32 @@
             </header>
             <main class="main">
                 <div class="modal modal-form">
-                    <form class="login form form-validate" action="">
-                        <div class="question__form-input form__input">
-                            <div class="form__input-icon">
-                                <img src="images/icons/access/access3.png" alt="">
+                    <form class="login__form form form-validate" action="">
+                        <div class="login__input-wrap form__input-wrap">
+                            <div class="login__label form__error"></div>
+                            <div class="login__form-input question__form-input form__input">
+                                <div class="form__input-icon">
+                                    <img src="images/icons/access/access3.png" alt="">
+                                </div>
+                                <input type="email" name="email" placeholder="E-MAIL" required>
                             </div>
-                            <input type="email" name="email" placeholder="E-MAIL" required>
                         </div>
-                        <div class="question__form-input form__input">
-                            <div class="form__input-icon">
-                                <img src="images/icons/access/access5.png" alt="">
+                        <div class="login__input-wrap form__input-wrap">
+                            <div class="login__label form__error"></div>
+                            <div class="login__form-input question__form-input form__input">
+                                <div class="form__input-icon">
+                                    <img src="images/icons/access/access5.png" alt="">
+                                </div>
+                                <input type="password" name="password" placeholder="ПАРОЛЬ" required>
                             </div>
-                            <input type="password" name="password" placeholder="ПАРОЛЬ" required>
                         </div>
-                        <div class="questions__form-checkbox form__checkbox">
-                            <input type="checkbox" required>
+                        <div class="login__form-checkbox login__form-input questions__form-checkbox form__checkbox">
+                            <input type="checkbox" name="agreePersonal" required>
                             <span>ДАЮ <a href="#">СОГЛАСИЕ НА ОБРАБОТКУ СВОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ</a></span>
                         </div>
                         <div class="login__bottom">
-                            <div class="questions__form-checkbox form__checkbox">
-                                <input type="checkbox" required>
+                            <div class="login__form-checkbox login__form-input questions__form-checkbox form__checkbox">
+                                <input type="checkbox">
                                 <span>ЗАПОМНИТЬ МЕНЯ</span>
                             </div>
                             <a href="recovery-page.html" class="login__forget">ЗАБЫЛИ ПАРОЛЬ?</a>

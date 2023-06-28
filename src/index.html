@@ -52,11 +52,11 @@
                             <img src="images/graphics/companies/companies3.png" alt="">
                             <img src="images/graphics/companies/companies4.png" alt="">
                         </div>
-                        <div class="offer__discount offer__text">
+                        <a href="#access" class="offer__discount offer__text">
                             ПОЛУЧИТЬ 20 ДНЕЙ 
                             БЕСПЛАТНОГО 
                             ПРОДВИЖЕНИЯ
-                        </div>
+                        </a>
                     </div>
                 </section>
                 <section class="how-work section" id="howWork">
@@ -246,49 +246,79 @@
                             ПОЛУЧИТЬ ДОСТУП
                         </h2>
                         <form action="#" class="access__form form form-validate">
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access1.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access1.png" alt="">
+                                    </div>
+                                    <input type="text" name="companyName" placeholder="НАЗВАНИЕ ОРГАНИЗАЦИИ ИЛИ ИП" required>
                                 </div>
-                                <input class="input-value" type="text" name="companyName" placeholder="НАЗВАНИЕ ОРГАНИЗАЦИИ ИЛИ ИП" required>
                             </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access2.png" alt="">
+                            
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access2.png" alt="">
+                                    </div>
+                                    <input class="input-value" type="phone" name="iin" placeholder="ИНН" required>
                                 </div>
-                                <input class="input-value" type="phone" name="iin" placeholder="ИНН" required>
                             </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access3.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access3.png" alt="">
+                                    </div>
+                                    <input type="email" name="email" placeholder="E-MAIL" required>
                                 </div>
-                                <input type="email" name="email" placeholder="E-MAIL" required>
                             </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access4.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access4.png" alt="">
+                                    </div>
+                                    <input class="input-value" type="phone" name="phone" placeholder="телефон" required>
                                 </div>
-                                <input class="input-value" type="phone" name="phone" placeholder="телефон" required>
                             </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access5.png" alt="">
+                            <div class="form__pass">
+                                <div class="questions__input-wrap form__input-wrap">
+                                    <div class="questions__label form__error"></div>
+                                    
+                                    <div class="question__form-input form__input">
+                                        <div class="form__input-icon">
+                                            <img src="images/icons/access/access5.png" alt="">
+                                        </div>
+                                        <input class="input-value" type="password" name="password" placeholder="ПАРОЛЬ" required>
+                                    </div>
                                 </div>
-                                <input class="input-value" type="password" name="password" placeholder="ПАРОЛЬ" required>
-                            </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access5.png" alt="">
+                                <div class="questions__input-wrap form__input-wrap">
+                                    <div class="questions__label form__error"></div>
+                                    <div class="question__form-input form__input">
+                                        <div class="form__input-icon">
+                                            <img src="images/icons/access/access5.png" alt="">
+                                        </div>
+                                        <input class="input-value" type="password" name="confirmPassword" placeholder="ПОВТОРИТЬ ПАРОЛЬ" required>
+                                    </div>
                                 </div>
-                                <input class="input-value" type="password" name="confirmPassword" placeholder="ПОВТОРИТЬ ПАРОЛЬ" required>
                             </div>
-                            <div class="access__form-checkbox form__checkbox">
-                                <input type="checkbox" name="agreePersonal" required>
-                                <span>ДАЮ <a href="#">СОГЛАСИЕ НА ОБРАБОТКУ СВОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ</a></span>
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="access__form-checkbox form__checkbox">
+                                    <input type="checkbox" name="agreePersonal" required>
+                                    <span>ДАЮ <a href="#">СОГЛАСИЕ НА ОБРАБОТКУ СВОИХ ПЕРСОНАЛЬНЫХ ДАННЫХ</a></span>
+                                </div>
                             </div>
-                            <div class="access__form-checkbox form__checkbox">
-                                <input type="checkbox" name="agreeOfert" required>
-                                <span>ПРИНИМАЮ УСЛОВИЯ <a href="#">ПУБЛИЧНОЙ ОФЕРТЫ</a></span>
+                            
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="access__form-checkbox form__checkbox">
+                                    <input type="checkbox" name="agreeOfert" required>
+                                    <span>ПРИНИМАЮ УСЛОВИЯ <a href="#">ПУБЛИЧНОЙ ОФЕРТЫ</a></span>
+                                </div>
                             </div>
                             <button class="access__form-btn form__btn btn" type="submit">
                                 Получить доступ
@@ -302,23 +332,32 @@
                             ОСТАЛИСЬ ВОПРОСЫ?
                         </h2>
                         <form action="#" class="questions__form form form-validate">
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access1.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access1.png" alt="">
+                                    </div>
+                                    <input type="text" name="companyName" placeholder="НАЗВАНИЕ ОРГАНИЗАЦИИ ИЛИ ИП" required>
                                 </div>
-                                <input type="text" name="companyName" placeholder="НАЗВАНИЕ ОРГАНИЗАЦИИ ИЛИ ИП" required>
                             </div>
-                            <div class="question__form-input form__input">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access3.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="question__form-input form__input">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access3.png" alt="">
+                                    </div>
+                                    <input type="email" name="email" placeholder="E-MAIL" required>
                                 </div>
-                                <input type="email" name="email" placeholder="E-MAIL" required>
                             </div>
-                            <div class="questions__form-input questions__form-textarea  form__input form__textarea">
-                                <div class="form__input-icon">
-                                    <img src="images/icons/access/access2.png" alt="">
+                            <div class="questions__input-wrap form__input-wrap">
+                                <div class="questions__label form__error"></div>
+                                <div class="questions__form-input questions__form-textarea  form__input form__textarea">
+                                    <div class="form__input-icon">
+                                        <img src="images/icons/access/access2.png" alt="">
+                                    </div>
+                                    <textarea type="text" name="message" placeholder="НАПИШИТЕ ИНТЕРЕСУЮЩИЙ ВАС ВОПРОС" required></textarea>
                                 </div>
-                                <textarea type="text" name="message" placeholder="НАПИШИТЕ ИНТЕРЕСУЮЩИЙ ВАС ВОПРОС" required></textarea>
                             </div>
                             <div class="questions__form-checkbox form__checkbox">
                                 <input type="checkbox" name="agreePersonal" required>

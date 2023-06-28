@@ -51,15 +51,18 @@
                     <form action="#" class="recovery login form">
                         <label for="recoveryEmail" data-error id="formRecoveryEmailNotRegistered"
                             style="display: none;">Ваш e-mail не зарегистрирован в нашем сервисе.</label>
-                        <label for="recoveryEmail" data-error id="formRecoveryEmailWrong" style="display: none;">Введите
-                            ваш e-mail в правильном формате.</label>
                         <label for="recoveryEmail" data-error id="formRecoveryNotAgree"
                             style="display: none;">Подтвердите согласие на обработку своих ПЕРСОНАЛЬНЫХ данных</label>
-                        <div class="question__form-input form__input">
-                            <div class="form__input-icon">
-                                <img src="images/icons/access/access3.png" alt="">
+                            
+                        <div class="questions__input-wrap form__input-wrap">
+                            <div class="questions__label form__error"></div>
+                            
+                            <div class="question__form-input form__input">
+                                <div class="form__input-icon">
+                                    <img src="images/icons/access/access3.png" alt="">
+                                </div>
+                                <input type="email" id="recoveryEmail" name="email" placeholder="E-MAIL">
                             </div>
-                            <input type="email" id="recoveryEmail" name="email" placeholder="E-MAIL">
                         </div>
                         <div class="questions__form-checkbox form__checkbox">
                             <input name="agreePersonal" type="checkbox">

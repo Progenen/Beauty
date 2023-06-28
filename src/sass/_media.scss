@@ -153,9 +153,10 @@
 
     .how-work {
         &__video {
-            height: 350px;
+            max-height: 50vw;
+            max-width: 150vw;
             iframe{
-                height: 330px;
+                height: 100%;
             }
         }
     }
@@ -164,7 +165,9 @@
         width: 100%;
         max-width: none;
         bottom: 0;
-        z-index: 2;
+        transform: translateX(0);
+        z-index: 15;
+        border-radius: 0;
         &__text {
             font-size: 16px;
         }
@@ -173,6 +176,7 @@
             padding: 10px 5px;
         }
         &.active {
+            transform: translateX(0);
             left: 0;
         }
     }
@@ -243,6 +247,18 @@
             input::placeholder, textarea::placeholder {
                 font-size: 11px;
             }
+        }
+    }
+
+    .login {
+        &__form-checkbox {
+            align-items: flex-start;
+            input {
+                margin: 0;
+            }
+        }
+        &__form-checkbox span {
+            font-size: 12px;
         }
     }
 }
