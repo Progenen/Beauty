@@ -80,17 +80,15 @@
         border: 10px solid $color1;
         padding-bottom: 0;
         background-color: $color1;
-        max-width: 843px;
-        width: 100%;
-        height: 530px;
+        width: 50vw;
+        height: 28.6vw;
         margin: 0 auto;
         box-shadow: 0 0 15px $color1;
     }
 
     &__video video {
-        object-fit: cover;
         width: 100%;
-        height: 512px;
+        height: 100%;
     }
 }
 

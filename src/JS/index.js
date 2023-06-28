@@ -131,28 +131,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
         inputAll.forEach(el => {
                 el.addEventListener("input", () => {
-                    if (inputName.value === '') {
+                    if (inputName.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else if (inputIin.value === '' || inputIin.value.search(/[0-9]/) === -1) {
+                    } else if (inputName.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else  if (inputEmail.value.indexOf("@") === -1) {
+                    } else if (inputEmail.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else if (inputPhone.value === '') {
+                    } else if (inputPhone.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else if (inputPass.value === '') {
+                    } else if (inputPass.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else  if (inputConfirmPass.value === '') {
+                    } else if (inputConfirmPass.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else  if (inputOfert.checked === false) {
+                    } else if (inputOfert.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
-                    } else if (inputPersonal.checked === false) {
+                    } else if (inputPersonal.parentElement.classList.contains("form__input-invalid")) {
                         btn.classList.add("disabled");
                     } else {
-                        console.log("succes");
                         btn.classList.remove("disabled");
                     }
+
              })
         });
+
+        accesForm.addEventListener("submit", (e) => {
+            if (inputName.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputName.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputEmail.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputPhone.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputPass.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputConfirmPass.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputOfert.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+            if (inputPersonal.parentElement.classList.contains("form__input-invalid")) {
+                e.preventDefault();
+            }
+        })
 
         btn.addEventListener("click", () => {
             if (inputName.value === '') {
@@ -210,13 +237,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         inputsAll.forEach(el => {
             el.addEventListener("input", () => {
-                if (inputName.value === '') {
+                if (inputName.parentElement.classList.contains("form__input-invalid")) {
                     btn.classList.add("disabled");
-                } else if (inputEmali.value.indexOf("@") === -1) {
+                } else if (inputEmali.parentElement.classList.contains("form__input-invalid")) {
                     btn.classList.add("disabled");
-                } else if (inputPersonal.checked === false) {
+                } else if (inputPersonal.parentElement.classList.contains("form__input-invalid")) {
                     btn.classList.add("disabled");
-                } else if (inputMessage.value === '') {
+                } else if (inputMessage.parentElement.classList.contains("form__input-invalid")) {
                     btn.classList.add("disabled");
     
                 } else {
@@ -340,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.classList.add("disabled");
 
         loginAll.forEach(el => {
-            el.addEventListener("click", () => {
+            el.addEventListener("input", () => {
                 if (loginPass.value === '') {
                     btn.classList.add("disabled");
                 } else if (loginEmail.parentElement.classList.contains("form__input-invalid")) {
@@ -363,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 loginEmail.parentElement.classList.add("form__input-invalid");
                 loginEmail.parentElement.parentElement.querySelector(".form__error").style.display="block";
                 loginEmail.parentElement.parentElement.querySelector(".form__error").textContent = errors[0];
-            } else if (loginEmail.value.indexOf("@") === false) {
+            } else if (loginEmail.value.indexOf("@") === -1) {
                 loginEmail.parentElement.classList.add("form__input-invalid");
                 loginEmail.parentElement.parentElement.querySelector(".form__error").style.display="block";
                 loginEmail.parentElement.parentElement.querySelector(".form__error").textContent = errors[1];
@@ -372,8 +399,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (loginPersonal.checked === false) {
                 loginPersonal.parentElement.classList.add("form__input-invalid");
-                loginPersonal.parentElement.parentElement.querySelector(".form__error").style.display="block";
-                loginPersonal.parentElement.parentElement.querySelector(".form__error").textContent = errors[1];
             }
         })
     }
